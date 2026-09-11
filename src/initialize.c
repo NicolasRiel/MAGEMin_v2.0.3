@@ -163,7 +163,7 @@ global_variable global_variable_alloc( bulk_info  *z_b ){
 	}
 
 	strcpy(gv.outpath,"./output/");					/** define the outpath to save logs and final results file	 						*/
-	strcpy(gv.version,"2.0.3 [20/11/2026]");		/** MAGEMin version 																*/
+	strcpy(gv.version,"2.0.3 [11/11/2026]");		/** MAGEMin version 																*/
 
 	/* generate parameters        		*/
 	strcpy(gv.buffer,"none");
@@ -515,7 +515,7 @@ SS_ref G_SS_init_EM_function(		SS_init_type		*SS_init,
 	/* DEW (DEW2019 aqueous model) needs each species' formation-reaction
 	   stoichiometry vs oxide components + H+, not just its mass-balance composition -
 	   see MAGEMin.h's SS_ref.mu_comp doc comment. NULL/unallocated for every other phase. */
-	if (strcmp(name, "DEW") == 0 || strcmp(name, "DEW_S14") == 0){
+	if (strcmp(name, "DEW") == 0 || strcmp(name, "DEW_S24") == 0){
 		SS_ref_db.mu_comp = malloc (n_em * sizeof (double*));
 		for (int i = 0; i < n_em; i++){
 			SS_ref_db.mu_comp[i] = malloc ((gv.len_ox+1) * sizeof (double));

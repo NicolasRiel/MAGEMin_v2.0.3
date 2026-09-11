@@ -1459,7 +1459,7 @@ void FreeDatabases(		global_variable gv,
 		free(DB.SS_ref_db[i].Comp);
 		free(DB.SS_ref_db[i].dp_dx);
 
-		if (strcmp(gv.SS_list[i], "DEW") == 0 || strcmp(gv.SS_list[i], "DEW_S14") == 0){
+		if (strcmp(gv.SS_list[i], "DEW") == 0 || strcmp(gv.SS_list[i], "DEW_S24") == 0){
 			for (j = 0; j < n_em; j++){ free(DB.SS_ref_db[i].mu_comp[j]); }
 			free(DB.SS_ref_db[i].mu_comp);
 		}

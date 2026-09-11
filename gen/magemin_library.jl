@@ -160,7 +160,7 @@ mutable struct EM_db_sb_
     Equation::NTuple{90, Cchar}
     Comp::NTuple{17, Cdouble}
     input_1::NTuple{10, Cdouble}
-    input_2::NTuple{3, Cdouble}
+    input_2::NTuple{9, Cdouble}
     EM_db_sb_() = new()
 end
 
@@ -176,6 +176,10 @@ end
 
 function SB_set_eos_correction(mode)
     ccall((:SB_set_eos_correction, libMAGEMin), Cvoid, (Cint,), mode)
+end
+
+function sb_property_modifier(P_bar, T, mod)
+    ccall((:sb_property_modifier, libMAGEMin), Cdouble, (Cdouble, Cdouble, Ptr{Cdouble}), P_bar, T, mod)
 end
 
 function SB_G_EM_function(EM_database, len_ox, id, bulk_rock, apo, P, T, name, state)
@@ -3803,6 +3807,10 @@ end
 
 function PC_convert_function(gv, SS_ref_db, z_b, ph_id)
     ccall((:PC_convert_function, libMAGEMin), SS_ref, (global_variable, SS_ref, bulk_info, Cint), gv, SS_ref_db, z_b, ph_id)
+end
+
+function LM_convert_function(gv, SS_ref_db, z_b, ph_id, gamma, n_gamma, xeos, n_xeos)
+    ccall((:LM_convert_function, libMAGEMin), SS_ref, (global_variable, SS_ref, bulk_info, Cint, Ptr{Cdouble}, Cint, Ptr{Cdouble}, Cint), gv, SS_ref_db, z_b, ph_id, gamma, n_gamma, xeos, n_xeos)
 end
 
 function CP_UPDATE_function(gv, SS_ref_db, cp, z_b)

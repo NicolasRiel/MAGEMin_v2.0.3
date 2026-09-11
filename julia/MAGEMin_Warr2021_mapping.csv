@@ -52,7 +52,7 @@ ep,ss,Epidote,Ep
 ep_H11,ss,Epidote,Ep
 fl,ss,Fluid,fl
 DEW,ss,DEW aqueous fluid (Sverjensky et al. 2014),DEW
-DEW_S14,ss,DEW aqueous fluid (Sverjensky et al. 2014),DEW
+DEW_S24,ss,DEW aqueous fluid (Sverjensky et al. 2014),DEW
 fl_EF21,ss,Fluid,fl
 fl_G25,ss,Fluid,fl
 fl_H03,ss,Fluid,fl
